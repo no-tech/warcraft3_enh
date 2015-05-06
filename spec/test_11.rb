@@ -7,7 +7,7 @@ describe Barracks do
     @footman = Footman.new
   end
 
-  it "health should equals to 495 when footman attacks" do
+  it "health should equal to 495 when footman attacks" do
     @footman.attack!(@barracks)
     expect(@barracks.health_points).to eq(495)
   end
