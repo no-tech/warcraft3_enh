@@ -4,17 +4,16 @@ describe Barracks do
 
   before :each do
     @barracks = Barracks.new
-    @footman = Footman.new
   end
 
-  it "health should equal to 495 when footman attacks" do
-    @footman.attack!(@barracks)
-    expect(@barracks.health_points).to eq(495)
+  it "should take 10 points damage" do
+    power = 10
+    expect{@barracks.damage(power)}.to change{@barracks.health_points}.by(-power)
   end
-  it "#dead? should equal to be true" do
-    expect(@barracks.dead?). to eq(false)
-  end
-  it "@alive should equal to be true" do
-    expect(@barracks.alive). to eq(true)
+
+  it "should take 3 points damage from footman" do
+    @footman = Footman.new
+    power = -(@footman.attack_power/2).ceil
+    expect{@footman.attack!(@barracks)}.to change{@barracks.health_points}.by(power)
   end
 end
