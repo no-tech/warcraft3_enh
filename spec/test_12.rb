@@ -1,15 +1,13 @@
 require_relative 'spec_helper'
 
-# describe Barracks do
+describe Footman do
 
-#   before :each do
-#     @barracks = Barracks.new
-#     @footman = Footman.new
-#   end
-
-#   it "health should equals to 495 when footman attacks" do
-#     @footman.attack!(@barracks)
-#     expect(@barracks.health_points).to eq(495)
-#   end
-
+  before :each do
+    @footman = Footman.new
+  end
+  describe "#dead?" do
+    it "returns true after @footman is created" do
+      expect(@footman.dead?).to be_truthy
+    end
+  end
 end
